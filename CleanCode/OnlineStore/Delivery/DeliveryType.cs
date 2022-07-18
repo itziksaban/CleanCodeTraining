@@ -1,8 +1,7 @@
 namespace OnlineStore.Reservations;
 
-public enum ProvisioningType
+public enum DeliveryType
 {
-    SelfCollection,
     Postal,
     DeliveryService
 }

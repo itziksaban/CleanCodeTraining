@@ -30,8 +30,8 @@ namespace OnlineStore.Reservations
             {
                 requestBody = await streamReader.ReadToEndAsync();
             }
-            dynamic order = JsonConvert.DeserializeObject(requestBody);
-            if (order.Provisioning.Type == ProvisioningType.SelfCollection)
+            var order = JsonConvert.DeserializeObject<DeliverableOrder>(requestBody);
+            if (order.OrderType == OrderType.SelfCollected)
             {
                 return new BadRequestErrorMessageResult("Self collection does not have a delivery cost");
             }

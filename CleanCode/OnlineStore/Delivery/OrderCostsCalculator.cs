@@ -24,22 +24,54 @@ public class OrderCostsCalculator
     }
 
 
-    public double CalcDeliveryCost(dynamic order)
+    public double CalcDeliveryCost(DeliverableOrder order)
     {
-        var distance = _distanceCalculator.Calc(order.Provisioning.Delivery.City);
+        var distance = _distanceCalculator.Calc(order.Destination);
         double totalCost = CalcPricePerKM(order);
         return totalCost * distance;
     }
 
-    private double CalcPricePerKM(dynamic order)
+    public double CalcTotalCost(Order order)
+    {
+        if (order.OrderType == OrderType.SelfCollected)
+        {
+            return CalcProductsCost(order) * 0.5;
+        }
+        else
+        {
+            var deliverableOrder = (DeliverableOrder) order;
+            if (deliverableOrder.DeliveryType == DeliveryType.Postal)
+            {
+                return CalcProductsCost(deliverableOrder) + CalcDeliveryCost(deliverableOrder) + TRANSFER_FEE;
+            }
+            else
+            {
+                return CalcProductsCost(deliverableOrder) + CalcDeliveryCost(deliverableOrder);
+            }
+        }
+    }
+
+    private double CalcProductsCost(Order order)
+    {
+        double productsCost = 0;
+        foreach (var orderLine in order.OrderLines)
+        {
+            productsCost += _productRepository.GetProduct(orderLine.ProductId).Price * orderLine.Amount;
+        }
+
+        return productsCost;
+    }
+
+    private double CalcPricePerKM(DeliverableOrder order)
     {
         double totalCost = 0;
-        if (order.Provisioning.Type == ProvisioningType.Postal)
+        if (order.DeliveryType == DeliveryType.Postal)
         {
             double totalWeight = 0;
             foreach (var orderLine in order.OrderLines)
             {
-                totalWeight += _productRepository.GetProduct(orderLine.ProductId).Weight * orderLine.Amount;
+                totalWeight += _productRepository.GetProduct(orderLine.ProductId).Weight * 
+                               orderLine.Amount;
             }
 
             totalCost = (totalWeight < 5
@@ -63,32 +95,5 @@ public class OrderCostsCalculator
         }
 
         return totalCost;
-    }
-
-    public double CalcTotalCost(dynamic order)
-    {
-        if (order.Provisioning.Type == ProvisioningType.SelfCollection)
-        {
-            return CalcProductsCost(order) * 0.5;
-        }
-        else if (order.Provisioning.Type == ProvisioningType.Postal)
-        {
-            return CalcProductsCost(order) + CalcDeliveryCost(order) + TRANSFER_FEE;
-        }
-        else
-        {
-            return CalcProductsCost(order) + CalcDeliveryCost(order);
-        }
-    }
-
-    private double CalcProductsCost(dynamic order)
-    {
-        double productsCost = 0;
-        foreach (var orderLine in order.OrderLines)
-        {
-            productsCost += _productRepository.GetProduct(orderLine.ProductId).Price * orderLine.Amount;
-        }
-
-        return productsCost;
     }
 }
