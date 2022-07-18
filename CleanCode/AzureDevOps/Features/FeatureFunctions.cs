@@ -38,7 +38,6 @@ namespace Functions
         {
             var cosmosClient = new CosmosClient(COSMOS_URI, COSMOS_KEY);
             var container = cosmosClient.GetContainer(DATABASE_ID, TASK_CONTAINER);
-            var queryText = container.GetItemLinqQueryable<Task>().Where(task => task.FeatureId == 7 || task.FeatureId == 8).ToQueryDefinition().QueryText;
             var sqlQueryText = $"SELECT * FROM task WHERE task.featureId = { featureId }";
             QueryDefinition queryDefinition = new QueryDefinition(sqlQueryText);
             using FeedIterator<Task> tasksIterator = container.GetItemQueryIterator<Task>(queryDefinition);
