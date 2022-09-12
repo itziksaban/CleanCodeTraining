@@ -3,3 +3,10 @@
 ################################################################################
 
 /CleanCode/Functions/TextFile1.txt
+/CleanCode/UnitTests/obj
+/CleanCode/UnitTests/StringCalculatorTests.cs
+/CleanCode/UnitTests/StringCalculator.cs
+/CleanCode/UnitTests/RomanConverterTest.cs
+/CleanCode/CleanCode.sln.DotSettings.user
+/CleanCode/UnitTests/StringCalc2Tests.cs
+/CleanCode/UnitTests/bin/Debug/net6.0
