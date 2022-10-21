@@ -18,7 +18,7 @@ Every time an approver approves or rejects, `ApprovalService.ProcessApproverDeci
 - if at least one approver rejected - update the bookkeeper by calling IBookkeeperUpdater.Update()`
 - If not all company's approvers have sent their approvals/rejections - DO NOTHING! (you can assume it's a paramter of `ApprovalService.ProcessApproverDecision`)
 
-Your job is to implement this logic in the `ApprovalService.ProcessApproverDecision` method, in a TDD style
+Your job is to implement this logic inside the `ApprovalService.ProcessApproverDecision` method, in a TDD style
 
 ### Advanced:  
 
