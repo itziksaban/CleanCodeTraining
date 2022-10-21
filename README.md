@@ -10,15 +10,16 @@ For that we have a `MonthlyApprovement` object in our db (nevermind which kind o
 
 Note: `MonthlyApprovement.Approved = false` means a rejection.
 
-Every time an approver approves or rejects, `ApprovalService.ProcessApproverDecision` is invoked with the following logic:  
-1 - Add the `Decision` object to the relevant `MonthlyApprovement` in the DB by using `IMonthlyApprovementRepository.Update(companyId, month, approved, approver)`
+Your job is to implement the following logic inside the `ApprovalService.ProcessApproverDecision` method, in a TDD style:  
+
+Everytime an approver approves or rejects:  
+1 - A `Decision` object should be added to the relevant `MonthlyApprovement` in the DB, and it's done by calling: `IMonthlyApprovementRepository.Update(companyId, month, approved, approver)`
 
 2 - Inspect the `MonthlyApprovement` object that comes back from  `IMonthlyApprovementRepository.Update`:
 - if all approvers approved - pay the salaries by calling `ISalaryPayer.PayAll()`
 - if at least one approver rejected - update the bookkeeper by calling IBookkeeperUpdater.Update()`
 - If not all company's approvers have sent their approvals/rejections - DO NOTHING! (you can assume it's a paramter of `ApprovalService.ProcessApproverDecision`)
 
-Your job is to implement this logic inside the `ApprovalService.ProcessApproverDecision` method, in a TDD style
 
 ### Advanced:  
 
