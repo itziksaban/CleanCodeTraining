@@ -8,6 +8,8 @@ For that we have a MonthlyApprovement object in our db (nevermind which kind of 
 - Approved (boolean)
 - Approver (string)
 
+![alt text](Untitled Diagram (3).jpg)
+
 Every time an ApprovalRequest is coming in, we apply the following logic:
 1 - Add the Decision object to the relevant MonthlyApprovement by using IMonthlyApprovementRepository.Update(companyId, month, approved, approver)
 
