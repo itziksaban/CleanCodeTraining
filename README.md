@@ -4,13 +4,13 @@
 
 SPS (Salaries Payment System) is a SaaS system that companies use to manage and pay their employees' salaries.  
 Each company has 1 or more approvers that need to approve the monthly payment of employees' salaries.
-For that we have a MonthlyApprovement object in our db (nevermind which kind of DB) that has a list of Decisions. Each Decision object has 2 fields: 
-- Approved (boolean)
-- Approver (string)
+For that we have a `MonthlyApprovement` object in our db (nevermind which kind of DB) that has a list of `Decision` objects.
 
-![alt text](Untitled Diagram (3).jpg)
+![alt text](MonthlyPayment.jpg)  
 
-Every time an ApprovalRequest is coming in, we apply the following logic:
+Note: `MonthlyApprovement.Approved = false` means a rejection.
+
+Every time an approver approves or rejects, ApprovalService.ProcessApproverDecision is invoked with the following logic:
 1 - Add the Decision object to the relevant MonthlyApprovement by using IMonthlyApprovementRepository.Update(companyId, month, approved, approver)
 
 2 - Inspect the MonthlyApprovement object that comes back from  IMonthlyApprovementRepository.Update:
