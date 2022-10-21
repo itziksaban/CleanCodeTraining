@@ -16,7 +16,9 @@ Every time an approver approves or rejects, `ApprovalService.ProcessApproverDeci
 2 - Inspect the `MonthlyApprovement` object that comes back from  `IMonthlyApprovementRepository.Update`:
 - if all approvers approved - pay the salaries by calling `ISalaryPayer.PayAll()`
 - if at least one approver rejected - update the bookkeeper by calling IBookkeeperUpdater.Update()`
-- If not all company's approvers have sent their approvals/rejections - DO NOTHING!
+- If not all company's approvers have sent their approvals/rejections - DO NOTHING! (you can assume it's a paramter of `ApprovalService.ProcessApproverDecision`)
+
+Your job is to implement this logic in the `ApprovalService.ProcessApproverDecision` method, in a TDD style
 
 ### Advanced:  
 
