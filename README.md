@@ -6,7 +6,7 @@ SPS (Salaries Payment System) is a SaaS system that companies use to manage and 
 Each company has 1 or more approvers that need to approve the monthly payment of employees' salaries.
 For that, each company has a `MonthlyApproval` object in the db (nevermind which kind of DB - we mock it anyway) that has a list of `Decision` objects.
 
-![alt text](MonthlyPayment.jpg)  
+![alt text](MonthlyPayment1.jpg)  
 
 Note: `MonthlyApproval.Approved = false` means a rejection.
 
