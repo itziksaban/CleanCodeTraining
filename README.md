@@ -27,7 +27,7 @@ Everytime an approver approves or rejects:
 
 3 - Try to fetch the relevant `MonthlyApproval` from the DB by calling `IMonthlyApprovalRepository.Get(companyId, month)`
 
-4 - If not found - insert it with the approver decision by calling  `IMonthlyApprovalRepository.Insert(companyId, month, year, approval, approver)`
+4 - If not found - create a new one with the approver decision by calling  `IMonthlyApprovalRepository.CreateNew(companyId, month, year, approval, approver)`
 
 5 - If you failed to insert it (method return false) because it already exists (someone else try to inserted it concurrently) - you can perform section 1 above
 
