@@ -31,6 +31,6 @@ Everytime an approver approves or rejects:
 
 5 - If you failed to insert it (method return false) because it already exists (someone else tried to insert it concurrently) - you can perform section 1 above
 
-6 - if the company has only one approver you can call `IMonthlyApprovalRepository.Insert( companyId, month, approval, approver)` and then:
+6 - if the company has only one approver you can call `IMonthlyApprovalRepository.CreateNew(companyId, month, year, approval, approver)` and then:
 - if the only approver approved - pay the salaries by calling `ISalaryPayer.PayAll(companyId)`
 - if not all approved - update the bookkeeper by calling `IBookkeeperUpdater.Update()`
