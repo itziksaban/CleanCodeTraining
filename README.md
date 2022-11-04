@@ -29,7 +29,7 @@ Everytime an approver approves or rejects:
 
 4 - If not found - create a new one with the approver decision by calling  `IMonthlyApprovalRepository.CreateNew(companyId, month, year, approval, approver)`
 
-5 - If you failed to insert it (method return false) because it already exists (someone else try to inserted it concurrently) - you can perform section 1 above
+5 - If you failed to insert it (method return false) because it already exists (someone else tried to insert it concurrently) - you can perform section 1 above
 
 6 - if the company has only one approver you can call `IMonthlyApprovalRepository.Insert( companyId, month, approval, approver)` and then:
 - if the only approver approved - pay the salaries by calling `ISalaryPayer.PayAll(companyId)`
