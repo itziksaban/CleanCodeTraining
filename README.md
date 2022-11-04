@@ -10,7 +10,7 @@ For that, each company has a `MonthlyApproval` object in the db (nevermind which
 
 Note: `Decision.Approved = false` means a rejection.
 
-Your job is to implement the following logic inside the `ApprovalService.ProcessApproverDecision` method, in a TDD style:  
+Your job is to implement the following logic inside the `ApprovalService.AddDecision` method, in a TDD style:  
 
 Everytime an approver approves or rejects:  
 1 - A `Decision` object should be added to the relevant `MonthlyApproval` in the DB, and it's done by calling: `IMonthlyApprovalRepository.Update(companyId, month, year, approved, approver)`
