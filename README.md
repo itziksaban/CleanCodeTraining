@@ -23,7 +23,7 @@ Everytime an approver approves or rejects:
 
 ### Advanced:  
 
-`IMonthlyApprovalRepository.Update` works only if the relevant `MonthlyApproval` already exists in the DB, therefore, you first need to understand if it exists and if not - create it, as follows:
+`IMonthlyApprovalRepository.Update` works only if the relevant `MonthlyApproval` already exists in the DB, therefore, before you call it, you first need to understand if it exists and if not - create it instead, as follows:
 
 3 - Try to fetch the relevant `MonthlyApproval` from the DB by calling `IMonthlyApprovalRepository.Get(companyId, month)`
 
