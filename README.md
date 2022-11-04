@@ -33,4 +33,4 @@ Everytime an approver approves or rejects:
 
 6 - if the company has only one approver you can call `IMonthlyApprovalRepository.CreateNew(companyId, month, year, approval, approver)` and then:
 - if the only approver approved - pay the salaries by calling `ISalaryPayer.PayAll(companyId)`
-- if not all approved - update the bookkeeper by calling `IBookkeeperUpdater.Update()`
+- if not all approved - update the bookkeeper by calling `IBookkeeperUpdater.Update(companyId)`
