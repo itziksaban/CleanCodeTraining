@@ -4,7 +4,7 @@
 
 SPS (Salaries Payment System) is a SaaS system that companies use to manage and pay their employees' salaries.  
 Each company has 1 or more approvers that need to approve the monthly payment of employees' salaries.
-For that we have a `MonthlyApprovement` object in our db (nevermind which kind of DB) that has a list of `Decision` objects.
+For that we have a `MonthlyApprovement` object in our db (nevermind which kind of DB - we mock it anyway) that has a list of `Decision` objects.
 
 ![alt text](MonthlyPayment.jpg)  
 
