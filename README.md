@@ -10,7 +10,7 @@ For that, each company has a `MonthlyApproval` object in the db (nevermind which
 
 Note: `Decision.Approved = false` means a rejection.
 
-Your job is to implement the following logic inside the `ApprovalService.AddDecision(companyId, month, year, approval, approver)` method, in a TDD style:  
+Your job is to implement the following logic inside the `ApprovalService.AddDecision(companyId, month, year, approval, approver, requiredApprovers)` method, in a TDD style:  
 
 Everytime an approver approves or rejects:  
 1 - A `Decision` object should be added to the relevant `MonthlyApproval` in the DB, and it's done by calling: `IMonthlyApprovalRepository.Update(companyId, month, year, approved, approver)`
@@ -18,7 +18,7 @@ Everytime an approver approves or rejects:
 2 - Inspect the `MonthlyApproval` object that comes back from  `IMonthlyApprovalRepository.Update`:
 - if all approvers approved - pay the salaries by calling `ISalaryPayer.PayAll(companyId)`
 - if at least one approver rejected - update the bookkeeper by calling `IBookkeeperUpdater.Update(companyId)`
-- If not all company's approvers have sent their approvals/rejections - DO NOTHING! (you can assume all companies has the same number of required approvers which is 3)
+- If not all company's approvers have sent their approvals/rejections - DO NOTHING! (it's the `requiredApprovers` parameter of `ApprovalService.AddDecision`)
 
 
 ### Advanced:  
