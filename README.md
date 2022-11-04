@@ -8,7 +8,7 @@ For that, each company has a `MonthlyApproval` object in the db (nevermind which
 
 ![alt text](MonthlyPayment1.jpg)  
 
-Note: `MonthlyApproval.Approved = false` means a rejection.
+Note: `Decision.Approved = false` means a rejection.
 
 Your job is to implement the following logic inside the `ApprovalService.ProcessApproverDecision` method, in a TDD style:  
 
