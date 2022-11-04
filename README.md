@@ -18,7 +18,7 @@ Everytime an approver approves or rejects:
 2 - Inspect the `MonthlyApproval` object that comes back from  `IMonthlyApprovalRepository.Update`:
 - if all approvers approved - pay the salaries by calling `ISalaryPayer.PayAll(companyId)`
 - if at least one approver rejected - update the bookkeeper by calling `IBookkeeperUpdater.Update(companyId)`
-- If there are not rejections so far, but yet not all company's approvers have sent their decisions - DO NOTHING! (it's the `requiredApprovers` parameter of `ApprovalService.AddDecision`)
+- If there are no rejections so far, but yet not all company's approvers have sent their decisions - DO NOTHING! (it's the `requiredApprovers` parameter of `ApprovalService.AddDecision`)
 
 
 ### Advanced:  
