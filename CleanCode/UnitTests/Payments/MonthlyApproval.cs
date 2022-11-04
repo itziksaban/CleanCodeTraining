@@ -1,6 +1,6 @@
 ﻿namespace UnitTests.Payments
 {
-    public class MonthlyArppvoment
+    public class MonthlyApproval
     {
         public Guid CompanyId { get; set; }
         public int Month { get; set; }
