@@ -2,32 +2,39 @@ namespace UnitTests;
 
 public class MyList
 {
-    private readonly int _chunkSize;
-    private readonly int[][] _arr = new int[1000][];
+    private readonly int _maxCols;
+    private readonly int[][] _arr;
     private int _size = 0;
-    private int currentArray = 0;
+    private int _currentRow = 0;
+    private static int _maxRows;
 
-    public MyList(int chunkSize)
+    public MyList(int maxRows, int maxCols)
     {
-        _chunkSize = chunkSize;
-        _arr[currentArray] = new int[_chunkSize];
+        _maxRows = maxRows;
+        _maxCols = maxCols;
+        _arr = new int[_maxRows][];
+        _arr[_currentRow] = new int[_maxCols];
     }
 
     public void Add(int value)
     {
-        if (_size == _chunkSize)
+        if (_size == _maxCols)
         {
-            currentArray++;
+            _currentRow++;
+            if (_currentRow == _maxRows)
+            {
+                return;
+            }
             _size = 0;
-            _arr[currentArray] = new int[_chunkSize];
+            _arr[_currentRow] = new int[_maxCols];
         }
-        _arr[currentArray][_size++] = value;
+        _arr[_currentRow][_size++] = value;
     }
 
     public int Get(int absoluteIndex)
     {
-        var index = absoluteIndex % _chunkSize;
-        var arrayIndex = absoluteIndex / _chunkSize;
+        var index = absoluteIndex % _maxCols;
+        var arrayIndex = absoluteIndex / _maxCols;
         return _arr[arrayIndex][index];
     }
 }
