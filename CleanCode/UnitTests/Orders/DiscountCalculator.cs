@@ -8,14 +8,12 @@ namespace UnitTests.Orders
 {
     public class DiscountCalculator
     {
-        public double Calc(Order order, User user)
+        public void Calc(Order order, User user)
         {
             if (order.Items.Count > 10 || user.IsVIP)
             {
-                return 0.05 * order.TotalPrice;
+                Order.Discount = 0.05;
             }
-
-            return 0;
         }
     }
 }

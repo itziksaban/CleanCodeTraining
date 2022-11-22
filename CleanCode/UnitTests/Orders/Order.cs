@@ -6,4 +6,5 @@ public class Order
     public bool CanBeSent { get; set; } = true;
     public string Id { get; set; }
     public double TotalPrice { get; set; }
+    public static double Discount { get; set; }
 }
