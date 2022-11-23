@@ -12,7 +12,7 @@ namespace UnitTests.Orders
         {
             if (order.Items.Count > 10 || user.IsVIP)
             {
-                Order.Discount = 0.05;
+                order.Discount = 0.05;
             }
         }
     }
