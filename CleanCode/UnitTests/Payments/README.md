@@ -16,8 +16,8 @@ Everytime an approver approves or rejects:
 1 - A `Decision` object should be added to the relevant `MonthlyApproval` in the DB, and it's done by calling: `IMonthlyApprovalRepository.Update(companyId, month, year, approved, approver)`
 
 2 - Inspect the `MonthlyApproval` object that comes back from  `IMonthlyApprovalRepository.Update`:
-- if all approvers approved - pay the salaries by calling `ISalaryPayer.PayAll(companyId)`
 - if at least one approver rejected - update the bookkeeper by calling `IBookkeeperUpdater.Update(companyId)`
+- if all approvers approved - pay the salaries by calling `ISalaryPayer.PayAll(companyId)`
 - If there are no rejections so far, and yet not all company's approvers have sent their decisions - DO NOTHING! (the `requiredApprovers` parameter of `ApprovalService.AddDecision` indicates how many required approvers a company has)
 
 
