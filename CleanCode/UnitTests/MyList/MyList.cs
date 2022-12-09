@@ -4,7 +4,7 @@ public class MyList
 {
     private readonly int _maxCols;
     private readonly int[][] _arr;
-    private int _size = 0;
+    private int _currentCol = 0;
     private int _currentRow = 0;
     private static int _maxRows;
 
@@ -18,17 +18,17 @@ public class MyList
 
     public void Add(int value)
     {
-        if (_size == _maxCols)
+        if (_currentCol == _maxCols)
         {
             _currentRow++;
-            if (_currentRow == _maxRows)
+            if (_currentRow >= _maxRows)
             {
                 return;
             }
-            _size = 0;
+            _currentCol = 0;
             _arr[_currentRow] = new int[_maxCols];
         }
-        _arr[_currentRow][_size++] = value;
+        _arr[_currentRow][_currentCol++] = value;
     }
 
     public int Get(int absoluteIndex)
