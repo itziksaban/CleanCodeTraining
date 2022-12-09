@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UnitTests.Orders
 {
-    internal class OrdersSender
+    public class OrdersSender
     {
         private readonly IUnsentOrdersRepository _unsentOrdersRepository;
         private readonly IWarehouseRepository _warehouseRepository;

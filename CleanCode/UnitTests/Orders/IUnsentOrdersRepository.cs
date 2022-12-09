@@ -1,6 +1,6 @@
 ﻿namespace UnitTests.Orders;
 
-internal interface IUnsentOrdersRepository
+public interface IUnsentOrdersRepository
 {
     Task<List<Order>> GetAll();
     void Remove(string orderId);
