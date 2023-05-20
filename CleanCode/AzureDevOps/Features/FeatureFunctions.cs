@@ -21,14 +21,6 @@ namespace Functions
         private const string DATABASE_ID = "AzureDevOps";
         private const string TASK_CONTAINER = "Tasks";
         private const string FEATURE_CONTAINER = "Features";
-        private FeatureRepository _featureRepository;
-        private TasksRepository _tasksRepository;
-
-        public FeatureFunctions()
-        {
-            _featureRepository = new FeatureRepository();
-            _tasksRepository = new TasksRepository();
-        }
 
         [FunctionName(nameof(CalcFeatureDeviation))]
         public async Task<IActionResult> CalcFeatureDeviation(
