@@ -6,41 +6,41 @@ namespace AzureDevOps.Tasks;
 
 internal class TasksRepository
 {
-    private Dictionary<int, List<Task>> _features;
+    private Dictionary<int, List<MyTask>> _features;
 
     public TasksRepository()
     {
-        _features = new Dictionary<int, List<Task>>
+        _features = new Dictionary<int, List<MyTask>>
         {
             {
                 7,
-                new List<Task>
+                new List<MyTask>
                 {
-                    new Task
+                    new MyTask
                     {
                         Status = TaskStatus.Open,
                         StartDate = new DateTime(2022, 5, 21),
                         Estimate = 7
                     },
-                    new Task
+                    new MyTask
                     {
                         Status = TaskStatus.Open,
                         StartDate = new DateTime(2022, 5, 21),
                         Estimate = 7
                     },
-                    new Task
+                    new MyTask
                     {
                         Status = TaskStatus.Open,
                         StartDate = new DateTime(2022, 5, 21),
                         Estimate = 7
                     },
-                    new Task
+                    new MyTask
                     {
                         Status = TaskStatus.Open,
                         StartDate = new DateTime(2022, 5, 21),
                         Estimate = 7
                     },
-                    new Task
+                    new MyTask
                     {
                         Status = TaskStatus.Open,
                         StartDate = new DateTime(2022, 5, 21),
@@ -50,33 +50,33 @@ internal class TasksRepository
             },
             {
                 21,
-                new List<Task>
+                new List<MyTask>
                 {
-                    new Task
+                    new MyTask
                     {
                         Status = TaskStatus.Open,
                         StartDate = new DateTime(2022, 5, 21),
                         Estimate = 7
                     },
-                    new Task
+                    new MyTask
                     {
                         Status = TaskStatus.Open,
                         StartDate = new DateTime(2022, 5, 21),
                         Estimate = 7
                     },
-                    new Task
+                    new MyTask
                     {
                         Status = TaskStatus.Open,
                         StartDate = new DateTime(2022, 5, 21),
                         Estimate = 7
                     },
-                    new Task
+                    new MyTask
                     {
                         Status = TaskStatus.Open,
                         StartDate = new DateTime(2022, 5, 21),
                         Estimate = 7
                     },
-                    new Task
+                    new MyTask
                     {
                         Status = TaskStatus.Open,
                         StartDate = new DateTime(2022, 5, 21),
@@ -87,7 +87,7 @@ internal class TasksRepository
         };
     }
 
-    public Task GetTask(int taskId)
+    public MyTask GetTask(int taskId)
     {
         throw new NotImplementedException();
     }

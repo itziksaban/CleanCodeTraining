@@ -14,9 +14,9 @@ public class TasksStreamer
         _streamWriter.AutoFlush = true;
     }
 
-    public async System.Threading.Tasks.Task WriteAsync(Task task)
+    public async System.Threading.Tasks.Task WriteAsync(MyTask myTask)
     {
-        await _streamWriter.WriteLineAsync(task.FeatureId + " | " + task.Name);
+        await _streamWriter.WriteLineAsync(myTask.FeatureId + " | " + myTask.Name);
     }
 
     public async System.Threading.Tasks.Task FlushAsync()

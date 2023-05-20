@@ -11,7 +11,6 @@ using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using AzureDevOps.Tasks;
 using Microsoft.Azure.Cosmos.Linq;
-using Task = AzureDevOps.Tasks.Task;
 
 namespace Functions
 {
@@ -40,12 +39,12 @@ namespace Functions
             var container = cosmosClient.GetContainer(DATABASE_ID, TASK_CONTAINER);
             var sqlQueryText = $"SELECT * FROM task WHERE task.featureId = { featureId }";
             QueryDefinition queryDefinition = new QueryDefinition(sqlQueryText);
-            using FeedIterator<Task> tasksIterator = container.GetItemQueryIterator<Task>(queryDefinition);
-            var tasks = new List<Task>();
+            using FeedIterator<MyTask> tasksIterator = container.GetItemQueryIterator<MyTask>(queryDefinition);
+            var tasks = new List<MyTask>();
             while (tasksIterator.HasMoreResults)
             {
-                FeedResponse<Task> currentResultSet = await tasksIterator.ReadNextAsync();
-                foreach (Task task in currentResultSet)
+                FeedResponse<MyTask> currentResultSet = await tasksIterator.ReadNextAsync();
+                foreach (MyTask task in currentResultSet)
                 {
                     tasks.Add(task);
                 }
@@ -70,12 +69,12 @@ namespace Functions
             var container = cosmosClient.GetContainer(DATABASE_ID, TASK_CONTAINER);
             var sqlQueryText = $"SELECT * FROM task WHERE task.featureId = { featureId }";
             QueryDefinition queryDefinition = new QueryDefinition(sqlQueryText);
-            using FeedIterator<Task> tasksIterator = container.GetItemQueryIterator<Task>(queryDefinition);
-            var tasks = new List<Task>();
+            using FeedIterator<MyTask> tasksIterator = container.GetItemQueryIterator<MyTask>(queryDefinition);
+            var tasks = new List<MyTask>();
             while (tasksIterator.HasMoreResults)
             {
-                FeedResponse<Task> currentResultSet = await tasksIterator.ReadNextAsync();
-                foreach (Task task in currentResultSet)
+                FeedResponse<MyTask> currentResultSet = await tasksIterator.ReadNextAsync();
+                foreach (MyTask task in currentResultSet)
                 {
                     tasks.Add(task);
                 }
@@ -118,12 +117,12 @@ namespace Functions
                 int featureDeviation = 0;
                 var sqlQueryText = $"SELECT * FROM task WHERE task.featureId = { feature.Id }";
                 QueryDefinition queryDefinition = new QueryDefinition(sqlQueryText);
-                using FeedIterator<Task> tasksIterator = tasksContainer.GetItemQueryIterator<Task>(queryDefinition);
-                var tasks = new List<Task>();
+                using FeedIterator<MyTask> tasksIterator = tasksContainer.GetItemQueryIterator<MyTask>(queryDefinition);
+                var tasks = new List<MyTask>();
                 while (tasksIterator.HasMoreResults)
                 {
-                    FeedResponse<Task> currentResultSet = await tasksIterator.ReadNextAsync();
-                    foreach (Task task in currentResultSet)
+                    FeedResponse<MyTask> currentResultSet = await tasksIterator.ReadNextAsync();
+                    foreach (MyTask task in currentResultSet)
                     {
                         tasks.Add(task);
                     }
