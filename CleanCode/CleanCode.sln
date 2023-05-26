@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureDevOps", "AzureDevOps\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTests", "UnitTests\UnitTests.csproj", "{55D2AC69-DAB4-42ED-84D1-6FD00AB7B241}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageHandling", "MessageHandling\MessageHandling.csproj", "{B1BAD745-8052-40F3-A49A-8CC35CDF4169}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{55D2AC69-DAB4-42ED-84D1-6FD00AB7B241}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{55D2AC69-DAB4-42ED-84D1-6FD00AB7B241}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{55D2AC69-DAB4-42ED-84D1-6FD00AB7B241}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1BAD745-8052-40F3-A49A-8CC35CDF4169}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1BAD745-8052-40F3-A49A-8CC35CDF4169}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1BAD745-8052-40F3-A49A-8CC35CDF4169}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1BAD745-8052-40F3-A49A-8CC35CDF4169}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
