@@ -16,4 +16,4 @@ Please consdider where to place the following logic considerations:
 - In every move, decide if the game is over or not (if snake crashes itself or the boarders).
 - Generate food
 - On every move, the snake and all the other objects should be re-drawn on the screen.
-- On every move, we need to understand in which direction the user chooses to move to - right/left/up/down
+- Where will be the logic that decides in which direction the user chooses to move to - right/left/up/down
