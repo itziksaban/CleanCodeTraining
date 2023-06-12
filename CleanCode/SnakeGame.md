@@ -12,7 +12,7 @@ Game rules:
 
 
 Please consdider where to place the following logic considerations:
-- A snake is a list of dots on the board - this list of dots should re-calculated on every move.
+- A snake is a list of dots on the board - this list of dots should be re-calculated on every move.
 - In every move, decide if the game is over or not (if snake crashes itself or the boarders).
 - Generate food
 - On every move, the snake and all the other objects should be re-drawn on the screen.
