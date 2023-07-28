@@ -4,5 +4,5 @@ namespace FunctionApp1;
 
 internal interface ILocationCalculator
 {
-    void CalcCoordinates(IEnumerable<Banner> banners);
+    void Calc(IEnumerable<Banner> banners);
 }

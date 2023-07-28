@@ -32,9 +32,9 @@ namespace FunctionApp1
             foreach (var placeHolder in placeHolders)
             {
                 IEnumerable<Banner> banners = _bannersCreator.Create(placeHolder);
-                banners.Append(CreateFloatingBanner(banners));
+                banners.Append(CreateFloatingBanner(banners.OfType<FeedBanner>()));
                 var locationCalculator = GetLocationCalculator(placeHolder);
-                locationCalculator.CalcCoordinates(banners);
+                locationCalculator.Calc(banners);
 
                 allBanners.AddRange(banners);
             }
@@ -42,7 +42,7 @@ namespace FunctionApp1
             return new OkObjectResult(allBanners);
         }
 
-        private Banner CreateFloatingBanner(IEnumerable<Banner> banners)
+        private FeedBanner CreateFloatingBanner(IEnumerable<FeedBanner> banners)
         {
             var firstBanner = banners.First(banner => banner.FeedIndex == 0);
             var floatingBanner = _bannersCreator.CreateFloating(firstBanner);
@@ -54,9 +54,9 @@ namespace FunctionApp1
             switch (placeHolder.Type)
             {
                 case PlaceholderType.Feed:
-                    return new FeedCalculator(placeHolder);
+                    return new FeedLocationCalculator(placeHolder);
                 case PlaceholderType.FixedBanner:
-                    return new FixedBannerCalculator(placeHolder);
+                    return new FixedBannerLocationCalculator(placeHolder);
                 default:
                     throw new ArgumentException("Unknown placeholder type");
             }

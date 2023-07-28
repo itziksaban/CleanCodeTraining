@@ -4,6 +4,6 @@ namespace FunctionApp1;
 
 internal interface IBannersCreator
 {
-    IEnumerable<Banner> Create(PlaceHolder placeHolder);
-    Banner CreateFloating(Banner firstRegularBanner);
+    IEnumerable<FeedBanner> Create(PlaceHolder placeHolder);
+    FeedBanner CreateFloating(FeedBanner firstRegularFeedBanner);
 }

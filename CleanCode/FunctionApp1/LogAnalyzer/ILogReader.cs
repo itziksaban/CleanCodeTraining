@@ -1,6 +1,6 @@
 using System.IO;
 
-namespace FunctionApp1;
+namespace FunctionApp1.LogAnalyzer.LogAnalyzer;
 
 public interface ILogReader
 {

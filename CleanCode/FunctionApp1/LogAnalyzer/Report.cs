@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace FunctionApp1;
+namespace FunctionApp1.LogAnalyzer;
 
 public class Report
 {

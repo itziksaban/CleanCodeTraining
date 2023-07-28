@@ -3,16 +3,16 @@ using System.Linq;
 
 namespace FunctionApp1;
 
-internal class FixedBannerCalculator : ILocationCalculator
+internal class FixedBannerLocationCalculator : ILocationCalculator
 {
     private readonly PlaceHolder _placeHolder;
 
-    public FixedBannerCalculator(PlaceHolder placeHolder)
+    public FixedBannerLocationCalculator(PlaceHolder placeHolder)
     {
         _placeHolder = placeHolder;
     }
 
-    public void CalcCoordinates(IEnumerable<Banner> banners)
+    public void Calc(IEnumerable<Banner> banners)
     {
         banners.First().CalcByGivenPoint(_placeHolder.Point);
     }

@@ -2,9 +2,9 @@ using System.Drawing;
 
 namespace FunctionApp1;
 
-internal class ExclusiveBanner : Banner
+internal class ExclusiveFeedBanner : FeedBanner
 {
-    public override void CalcByPrev(Banner prev)
+    public override void CalcByPrev(FeedBanner prev)
     {
         var height = Height;
         if (prev.IsInappropriate)
