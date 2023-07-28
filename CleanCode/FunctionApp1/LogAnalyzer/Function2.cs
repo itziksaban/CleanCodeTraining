@@ -15,7 +15,7 @@ public class Function2
     private readonly ILogReader _logReader;
     private readonly ILogAnalyzer _logAnalyzer;
     private readonly IReportParser _reportParser;
-    private IBannersCreator _bannersCreator;
+    private BannersCreator _bannersCreator;
 
     public Function2(ILogReader logReader, ILogAnalyzer logAnalyzer, IReportParser reportParser)
     {
@@ -45,7 +45,7 @@ public class Function2
         switch (placeHolder.Type)
         {
             case PlaceholderType.Feed:
-                return new FeedLocationCalculator(placeHolder);
+                return new LocationCalculator(placeHolder);
             case PlaceholderType.FixedBanner:
                 return new FixedBannerLocationCalculator(placeHolder);
             default:

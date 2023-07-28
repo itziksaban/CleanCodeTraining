@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
@@ -14,15 +13,13 @@ namespace FunctionApp1
 {
     public class Function1
     {
-        private readonly ILogReader _logReader;
-        private readonly ILogAnalyzer _logAnalyzer;
-        private IBannersCreator _bannersCreator;
-
-        public Function1(ILogReader logReader, ILogAnalyzer logAnalyzer)
+        public Function1(PlaceHolder placeHolder1)
         {
-            _logReader = logReader;
-            _logAnalyzer = logAnalyzer;
+            _placeHolder = placeHolder1;
         }
+
+        private BannersCreator _bannersCreator;
+        private PlaceHolder _placeHolder;
 
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
@@ -31,32 +28,21 @@ namespace FunctionApp1
             var allBanners = new List<Banner>();
             foreach (var placeHolder in placeHolders)
             {
-                IEnumerable<Banner> banners = _bannersCreator.Create(placeHolder);
-                banners.Append(CreateFloatingBanner(banners.OfType<FeedBanner>()));
-                var locationCalculator = GetLocationCalculator(placeHolder);
-                locationCalculator.Calc(banners);
-
-                allBanners.AddRange(banners);
+                var bannersCreator = GetBannersCreator(placeHolder);
+                allBanners.AddRange(bannersCreator.Create(placeHolder));
             }
 
             return new OkObjectResult(allBanners);
         }
 
-        private FeedBanner CreateFloatingBanner(IEnumerable<FeedBanner> banners)
-        {
-            var firstBanner = banners.First(banner => banner.FeedIndex == 0);
-            var floatingBanner = _bannersCreator.CreateFloating(firstBanner);
-            return floatingBanner;
-        }
-
-        private ILocationCalculator GetLocationCalculator(PlaceHolder placeHolder)
+        private BannersCreator GetBannersCreator(PlaceHolder placeHolder)
         {
             switch (placeHolder.Type)
             {
                 case PlaceholderType.Feed:
-                    return new FeedLocationCalculator(placeHolder);
+                    return new FeedBannersCreator();
                 case PlaceholderType.FixedBanner:
-                    return new FixedBannerLocationCalculator(placeHolder);
+                    return new FixedBannersCreator();
                 default:
                     throw new ArgumentException("Unknown placeholder type");
             }

@@ -3,19 +3,19 @@ using System.Linq;
 
 namespace FunctionApp1;
 
-internal class FeedLocationCalculator : ILocationCalculator
+internal class LocationCalculator
 {
     private readonly PlaceHolder _placeHolder;
 
-    public FeedLocationCalculator(PlaceHolder placeHolder)
+    public LocationCalculator(PlaceHolder placeHolder)
     {
         _placeHolder = placeHolder;
     }
 
-    public void Calc(IEnumerable<Banner> banners)
+    public void Calc(IEnumerable<FeedBanner> banners)
     {
         FeedBanner prev = null;
-        foreach (var banner in banners.OfType<FeedBanner>().OrderBy(b => b.FeedIndex))
+        foreach (var banner in banners.OrderBy(b => b.FeedIndex))
         {
             prev = banner;
             SetBannerLocation(banner, prev);
