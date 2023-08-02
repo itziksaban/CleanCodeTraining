@@ -8,7 +8,6 @@ public abstract class Banner
     public Point Point { get; set; }
     public int Height { get; set; }
     public abstract int FeedIndex { get; set; }
-    public bool IsInappropriate { get; set; }
 
     public void CalcByGivenPoint(Point placeHolderPoint)
     {
