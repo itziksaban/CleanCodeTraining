@@ -2,7 +2,7 @@ using System.Drawing;
 
 namespace FunctionApp1;
 
-internal class RegularFeedBanner : Banner
+internal class FeedBanner : Banner
 {
     public override void CalcByPrev(Banner prev)
     {

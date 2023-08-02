@@ -13,6 +13,6 @@ public class BannersCreator
     public Banner CreateFloating(Banner banner)
     {
         // creating floating banner bla bla...
-        return new RegularFeedBanner();
+        return new FeedBanner();
     }
 }
