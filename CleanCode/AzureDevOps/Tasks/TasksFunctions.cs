@@ -31,7 +31,8 @@ public class TasksFunctions
     public static int TaskDeviation(TaskStatus taskStatus, int taskEstimate, DateTime taskStartDate)
     {
         int taskDeviation = 0;
-        if (taskStatus == TaskStatus.Open)
+        var alreadyStarted = taskStartDate < DateTime.Now;
+        if (taskStatus == TaskStatus.Open && alreadyStarted)
         {
             var dueDate = taskStartDate.AddDays(taskEstimate);
             if (dueDate > DateTime.Now)
