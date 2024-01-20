@@ -31,11 +31,9 @@ public class TasksFunctions
 
     public static int TaskDeviation(TaskStatus taskStatus, int taskEstimate, DateTime taskStartDate)
     {
-        var dueDate = taskStartDate.AddDays(taskEstimate);
-        var dueDateAlreadyPassed = dueDate < DateTime.Now;
-        if (taskStatus == TaskStatus.Open && dueDateAlreadyPassed)
+        if (taskStatus == TaskStatus.Open && taskStartDate.AddDays(taskEstimate) < DateTime.Now)
         {
-            return (int) (DateTime.Now - dueDate).TotalDays;
+            return (int) (DateTime.Now - taskStartDate.AddDays(taskEstimate)).TotalDays;
         }
 
         return 0;
