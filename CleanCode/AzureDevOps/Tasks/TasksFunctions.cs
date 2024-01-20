@@ -20,7 +20,8 @@ public class TasksFunctions
 
     [FunctionName(nameof(GetTaskDeviation))]
     public async Task<IActionResult> GetTaskDeviation(
-        [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = "{taskId}")] HttpRequest req,
+        [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = "{taskId}")]
+        HttpRequest req,
         ILogger log, int taskId)
     {
         var task = _tasksRepository.GetTask(taskId);
@@ -30,16 +31,13 @@ public class TasksFunctions
 
     public static int TaskDeviation(TaskStatus taskStatus, int taskEstimate, DateTime taskStartDate)
     {
-        int taskDeviation = 0;
-        if (taskStatus == TaskStatus.Open)
+        var dueDate = taskStartDate.AddDays(taskEstimate);
+        var dueDateAlreadyPassed = dueDate < DateTime.Now;
+        if (taskStatus == TaskStatus.Open && dueDateAlreadyPassed)
         {
-            var dueDate = taskStartDate.AddDays(taskEstimate);
-            if (dueDate > DateTime.Now)
-            {
-                taskDeviation = (int)(dueDate - DateTime.Now).TotalDays;
-            }
+            return (int) (DateTime.Now - dueDate).TotalDays;
         }
 
-        return taskDeviation;
+        return 0;
     }
 }
