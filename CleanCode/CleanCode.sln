@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessageHandling", "MessageH
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunctionApp1", "FunctionApp1\FunctionApp1.csproj", "{58CC927B-D3DD-4F77-BB32-E77B6385DFDD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Refactoring", "Refactoring\Refactoring.csproj", "{ADF3A93F-1719-4A4A-A14F-BABA79F91C26}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{58CC927B-D3DD-4F77-BB32-E77B6385DFDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{58CC927B-D3DD-4F77-BB32-E77B6385DFDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{58CC927B-D3DD-4F77-BB32-E77B6385DFDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADF3A93F-1719-4A4A-A14F-BABA79F91C26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADF3A93F-1719-4A4A-A14F-BABA79F91C26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADF3A93F-1719-4A4A-A14F-BABA79F91C26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADF3A93F-1719-4A4A-A14F-BABA79F91C26}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
