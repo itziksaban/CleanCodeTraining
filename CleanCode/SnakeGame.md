@@ -3,7 +3,7 @@
 Let us see how to design a basic Snake Game.
 
 Game rules:
-- A snake can move in a given direction and when it eats the food, the length of snake increases. 
+- A snake can move in a given direction and when it eats the food, the length of the snake increases. 
 - Food will be generated at a given interval.
 - When the snake crosses itself, the game will be over. 
 - When the snake crashes the board borders, the game will be over.
