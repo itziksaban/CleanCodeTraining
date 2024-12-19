@@ -11,3 +11,9 @@ Game rules:
 - When the user's snake crosses itself, the game is over. 
 - When the user's snake crashes the board borders, the game is over.
  
+
+Logics to consider:
+- Understand the direction the user wishes to move to
+- Understand if a snake hits another snake, food, boarder, or none.
+- Calculate the shape of and location of each snake after each round
+- Repaint the entire board after each round
